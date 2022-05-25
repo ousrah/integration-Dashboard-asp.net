@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApplication15.OUVRAGE>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "ouvrages")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Code
+        </th>
+        <th>
+            Titre
+        </th>
+        <th>
+            Année
+        </th>
+        <th>
+            Classification
+        </th>
+        <th>
+            Editeur
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NUMOUVR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NOMOUVR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ANNEEPARU)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CLASSIFICATION.LIBRUB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NOMED)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "OUVRAGES", new { id = item.NUMOUVR }, new { @class = "" }); |
+        @Html.ActionLink("Details", "Details", "OUVRAGES", new { id = item.NUMOUVR }, new { @class = "" }); |
+        @Html.ActionLink("Delete", "Delete", "OUVRAGES", new { id = item.NUMOUVR }, new { @class = "" });
+    </td>
+</tr>
+}
+
+</table>

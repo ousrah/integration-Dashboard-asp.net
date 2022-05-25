@@ -1,0 +1,58 @@
+﻿@model WebApplication15.OUVRAGE
+
+@{
+    ViewBag.Title = "Details";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OUVRAGE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Code
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMOUVR)
+        </dd>
+        <dt>
+            Titre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMOUVR)
+        </dd>
+
+        <dt>
+            Année
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANNEEPARU)
+        </dd>
+
+        <dt>
+            Classification
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLASSIFICATION.LIBRUB)
+        </dd>
+
+        <dt>
+            Editeur
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMED)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", "OUVRAGEs", new { id = Model.NUMOUVR }, new {@class="" }) |
+    @Html.ActionLink("Back to List", "Index", "OUVRAGEs")
+</p>
