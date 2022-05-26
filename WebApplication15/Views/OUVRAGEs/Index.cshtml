@@ -7,6 +7,15 @@
 
 <h2>Index</h2>
 
+
+<form asp-action="index" asp-controller="ouvrages" method="post">
+    <input type="text" id="chercher" name="chercher"  value="@ViewBag.mot" />
+    <input type="submit" id="btnChercher"  value="chercher" />
+
+</form>
+
+
+
 <p>
     @Html.ActionLink("Create New", "Create", "ouvrages")
 </p>

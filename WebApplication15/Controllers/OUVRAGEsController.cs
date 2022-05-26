@@ -7,12 +7,28 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication15;
-
+using System.Diagnostics;
 namespace WebApplication15.Controllers
 {
     public class OUVRAGEsController : Controller
     {
         private librairieEntities db = new librairieEntities();
+
+       [HttpPost]
+        public ActionResult Index(string chercher)
+        {
+            Debug.WriteLine(chercher);
+            //  Response.Write(chercher);
+            var oUVRAGE = db.OUVRAGE.Include(o => o.CLASSIFICATION).Include(o => o.EDITEUR);
+           // var oUVRAGE = db.OUVRAGE;                      //   return View("~/Views/OUVRAGEs/MaVue.cshtml",oUVRAGE.ToList());
+            if (chercher!=null && chercher!="")
+            {
+                oUVRAGE = oUVRAGE.Where(o => o.NOMOUVR.Contains(chercher));
+            }
+            ViewBag.mot = chercher;
+            return View(oUVRAGE.ToList());
+
+        }
 
         // GET: OUVRAGEs
         public ActionResult Index()
