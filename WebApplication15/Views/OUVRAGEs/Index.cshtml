@@ -10,6 +10,21 @@
 
 <form asp-action="index" asp-controller="ouvrages" method="post">
     <input type="text" id="chercher" name="chercher"  value="@ViewBag.mot" />
+    <!--combobox de la liste des classification-->
+    <select id="classfication" name="classification">
+        <option value="">Toutes les classifications</option>
+        @foreach (CLASSIFICATION c in ViewBag.classifications)
+        {
+            <option 
+                   @(Html.DisplayFor(modelItem => c.NUMRUB).ToString()==ViewBag.classification ? "selected":"")
+                    value="@Html.DisplayFor(modelItem => c.NUMRUB)"
+                    >  
+        @Html.DisplayFor(modelItem => c.LIBRUB)
+            </option>
+        }
+    </select>
+    
+    
     <input type="submit" id="btnChercher"  value="chercher" />
 
 </form>

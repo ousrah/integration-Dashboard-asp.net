@@ -15,7 +15,7 @@ namespace WebApplication15.Controllers
         private librairieEntities db = new librairieEntities();
 
        [HttpPost]
-        public ActionResult Index(string chercher)
+        public ActionResult Index(string chercher, string classification)
         {
             Debug.WriteLine(chercher);
             //  Response.Write(chercher);
@@ -25,7 +25,19 @@ namespace WebApplication15.Controllers
             {
                 oUVRAGE =  oUVRAGE.Where(o => o.NOMOUVR.Contains(chercher));
             }
+
+            if (classification != null && classification != "")
+            {
+                int cl = Convert.ToInt32(classification);
+                oUVRAGE = oUVRAGE.Where(o => o.CLASSIFICATION.NUMRUB.Equals(cl));
+            }
+
             ViewBag.mot = chercher;
+            ViewBag.classification = classification;
+            // ViewBag.mot = chercher;
+            ViewBag.classifications = db.CLASSIFICATION.ToList();
+
+
             return View(oUVRAGE.ToList());
 
         }
@@ -35,6 +47,9 @@ namespace WebApplication15.Controllers
         {
             var oUVRAGE = db.OUVRAGE; //.Include(o => o.CLASSIFICATION).Include(o => o.EDITEUR);
                                       //   return View("~/Views/OUVRAGEs/MaVue.cshtml",oUVRAGE.ToList());
+
+            ViewBag.classifications = db.CLASSIFICATION.ToList();
+            
             return View( oUVRAGE.ToList());
 
         }
