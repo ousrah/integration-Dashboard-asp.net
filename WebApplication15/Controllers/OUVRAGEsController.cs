@@ -19,12 +19,9 @@ namespace WebApplication15.Controllers
         {
             Debug.WriteLine(chercher);
             //  Response.Write(chercher);
-            var oUVRAGE = db.OUVRAGE.Include(o => o.CLASSIFICATION).Include(o => o.EDITEUR);
-           // var oUVRAGE = db.OUVRAGE;                      //   return View("~/Views/OUVRAGEs/MaVue.cshtml",oUVRAGE.ToList());
-            if (chercher!=null && chercher!="")
-            {
-                oUVRAGE = oUVRAGE.Where(o => o.NOMOUVR.Contains(chercher));
-            }
+         
+              var  oUVRAGE =  db.OUVRAGE.Where(o => o.NOMOUVR.Contains(chercher));
+          
             ViewBag.mot = chercher;
             return View(oUVRAGE.ToList());
 
