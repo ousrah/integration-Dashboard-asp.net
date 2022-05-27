@@ -134,6 +134,7 @@
     <Compile Include="CLASSIFICATION.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ECRIVAINsController.cs" />
     <Compile Include="Controllers\EDITEURsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OUVRAGEsController.cs" />
@@ -2298,6 +2299,12 @@
     <Content Include="Views\EDITEURs\Edit.cshtml" />
     <Content Include="Views\EDITEURs\Index.cshtml" />
     <Content Include="Views\EDITEURs\listeEditeurs.cshtml" />
+    <Content Include="Views\ECRIVAINs\Create.cshtml" />
+    <Content Include="Views\ECRIVAINs\Delete.cshtml" />
+    <Content Include="Views\ECRIVAINs\Details.cshtml" />
+    <Content Include="Views\ECRIVAINs\Edit.cshtml" />
+    <Content Include="Views\ECRIVAINs\Index.cshtml" />
+    <Content Include="Views\ECRIVAINs\listeEcrivains.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

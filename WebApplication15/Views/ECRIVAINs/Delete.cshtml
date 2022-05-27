@@ -1,0 +1,57 @@
+﻿@model WebApplication15.ECRIVAIN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ECRIVAIN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOMECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOMECR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMECR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAYSECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAYSECR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LANGUECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LANGUECR)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

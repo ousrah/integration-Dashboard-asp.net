@@ -1,0 +1,103 @@
+﻿@model IEnumerable<WebApplication15.ECRIVAIN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<input type="text" id="txtRecherche"name="txtRecherche" value="" />
+<input type="button" id="btnRecherche"name="btnRecherche"  value="Chercher" />
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+<div id="lstEcrivains">
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PRENOMECR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMECR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAYSECR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LANGUECR)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRENOMECR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMECR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PAYSECR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LANGUECR)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NUMECR }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.NUMECR }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NUMECR })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+</div>
+
+
+@section scripts{
+    
+    
+    <script>
+        $("document").ready(function () {
+
+            $("#btnRecherche").on("click", function () {
+             // d = "mot=" + $("#txtRecherche").val() +"&var2=val2"
+                d = {
+                    'mot': $("#txtRecherche").val(),
+                    'var2': 'val2'
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Ecrivains/getListeEcrivains",
+                    data: d,
+
+                    success: function (rep) {
+                        $("#lstEcrivains").html(rep);
+                    }
+
+                });
+
+
+            });
+
+        })
+
+
+
+    </script>
+    
+    }

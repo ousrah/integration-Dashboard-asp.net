@@ -1,0 +1,51 @@
+﻿@model WebApplication15.ECRIVAIN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ECRIVAIN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOMECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOMECR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMECR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAYSECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAYSECR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LANGUECR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LANGUECR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NUMECR }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
